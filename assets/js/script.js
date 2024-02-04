@@ -50,3 +50,24 @@ function currentWeather(city){
         console.log(response);
     
         storeCity(response.name);
+
+  // creating div to store all of the information for the current weather
+  var todayWeather = $("<div class= 'card-body'>");
+  todayWeather.addClass("border border-dark rounded");
+
+  // Current City Name
+  var currentCity = $(" <h3 id='city-name' class='city-name' align-middle>").text(response.name);
+  todayWeather.append(currentCity);
+
+   // TODAY'S DATE
+   var todayDate = $("<p>");
+   todayDate.text(moment().format('dddd, MMM Do YYYY'));
+   todayWeather.append(todayDate);
+   
+   // Weather Icon for current day
+   var weatherImg = response.weather[0].icon;
+   var weatherIcon= $("<img id='weatherImg'>").attr("src", "https://openweathermap.org/img/wn/" + weatherImg + "@2x.png");
+   weatherIcon.attr("alt", response.weather[0].description);
+   todayWeather.append(weatherIcon);
+
+   
