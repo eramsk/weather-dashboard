@@ -77,6 +77,14 @@ function currentWeather(city){
       todayWeather.append(currentTemp);
 
 
+      //Wind
+      var currentWind= $("<p id='wind-speed'></p>").text("Wind Speed " + (response.wind.speed) + " km/h");
+      todayWeather.append(currentWind);
+
+      //Humidity
+      var currentHumidty= $("<p id='humidity'></p>").text("Humidity " + (response.main.humidity) + " %");
+      todayWeather.append(currentHumidty);
+     
 
 
    
