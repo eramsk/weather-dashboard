@@ -69,5 +69,14 @@ function currentWeather(city){
    var weatherIcon= $("<img id='weatherImg'>").attr("src", "https://openweathermap.org/img/wn/" + weatherImg + "@2x.png");
    weatherIcon.attr("alt", response.weather[0].description);
    todayWeather.append(weatherIcon);
+     // TEMPERATURE IN CELSIUS 
+     var tempC = Math.floor(response.main.temp - 273.15); 
+    
+      //   function tempC(C) {return Math.floor(((C - 32) * 5) / 9)}    
+      var currentTemp=$("<p id='temperature'></p>").text("Temperature " + tempC + " ℃");
+      todayWeather.append(currentTemp);
+
+
+
 
    
