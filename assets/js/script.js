@@ -108,5 +108,54 @@ function forecast(cityid){
        method:"GET"
    }).then(function(data){
 
-
+ // array for the next five days 
+ var forecastDays = [];
    
+
+ for (var i = 0; i < 5; i++) {
+     let forecastDate = $("<h5>").text(moment().add(i + 1, 'days').format('DD/MM/YYYY'));
+
+     forecastDays.push(forecastDate);
+     
+ }
+    // Forecast is empty before
+    forecastId.empty();
+
+    
+
+      // for each day  a forecast card is created
+       for (var i=0; i< forecastDays.length; i++){
+         var dataIndex = i * 8 + 4;
+    
+
+       // DIV class for forecast Weather
+       var forecastDiv = $ ("<div>");
+       forecastDiv.addClass('col3 border border-dark rounded');
+       forecastDiv.css("background-color" , "#323a47");
+       forecastDiv.css("margin-right", "20px");
+       forecastDiv.css("margin-top", "15px");
+       
+
+       // DIV card body
+       var cardBody = $('<div>').addClass('card-body');
+       
+        // Forecast Weather Icon
+        
+        var forecastIcon= $("<img>").attr("src", "https://openweathermap.org/img/wn/" + data.list[dataIndex].weather[0].icon+ "@2x.png");
+        forecastIcon.attr("alt", data.list[dataIndex].weather[0].description);
+        forecastIcon.css("align","left");
+        
+   
+        //Forecast Temp
+        var forecastTemp = $("<p>").text("Temperature " + data.list[dataIndex].main.temp + "\u2103").addClass('card-text');
+        forecastTemp.css("color", "#05D9FF");
+       
+   
+        //Forecast Wind Speed
+        var forecastWind = $("<p>").text("Wind Speed " + (data.list[dataIndex].wind.speed) + " km/h").addClass('card-text');
+        forecastWind.css("color", "#05D9FF");
+        
+   
+        // Forecast Humidity
+        var forecastHumidity = $("<p>").text("Humidity " + (data.list[dataIndex].main.humidity) + " %").addClass('card-text');
+        forecastHumidity.css("color", "#05D9FF");
