@@ -1,11 +1,11 @@
 :root {
-  --background: #222831;
-  --lightBlue: #05d9ff;
-  --blue: #a7c3c9;
-  --bck2: #323a47;
-  --hover: #4f5b70;
-}
-
+    --background: #222831;
+    --lightBlue: #05d9ff;
+    --blue: #a7c3c9;
+    --bck2: #323a47;
+    --hover: #4f5b70;
+  } 
+  
 h1 {
   background-color: var(--bck2);
   color: var(--lightBlue);
