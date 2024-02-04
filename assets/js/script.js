@@ -162,7 +162,7 @@ function forecast(cityid){
 
         
     // Appending all forecast elements to the div element
-    
+
       forecastDiv.append(cardBody);
       forecastDiv.append(forecastDays[i]);
       forecastDiv.append(forecastIcon);
@@ -180,3 +180,36 @@ function forecast(cityid){
     }
    
    )}
+
+   // render function
+   
+function renderButtons(){
+    cityList.empty();
+
+    for (var i=0; i<city.length; i++){
+        var cityButton = $("<button>");
+        cityButton.addClass("city-button");
+        cityButton.attr("data-name",city[i]);
+        cityButton.text(city[i]);
+        cityList.append(cityButton);
+
+         // CITY BUTTON STYLE
+
+    cityButton.css("background-color","white");
+    cityButton.css("width","250px");
+    cityButton.css("border-radius","20px");
+    cityButton.css("text-align","left");
+  
+
+      // Clicking on the list of cities, the clicked city will appear
+        
+        cityList.on("click", ".city-button",function(){
+            var thisCity = $(this)[0].textContent;
+            console.log(thisCity, "thisCity");
+            currentWeather(thisCity);
+            forecast(thisCity);
+            })
+    }
+
+   
+}
