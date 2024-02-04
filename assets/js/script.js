@@ -85,6 +85,28 @@ function currentWeather(city){
       var currentHumidty= $("<p id='humidity'></p>").text("Humidity " + (response.main.humidity) + " %");
       todayWeather.append(currentHumidty);
      
+      todayId.html("")
+      // Prepend today's weather to today-class in html
+      todayId.prepend(todayWeather);
+
+      todayId.css("background-color","#323a47");
+      todayId.css("color","#05D9FF")
+      
+
+      var cityLatitude = response.coord.lat;
+      var cityLong = response.coord.lon;
+  
+    })
+}
+
+    // forecast for 5 days
+
+function forecast(cityid){
+    var forcastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityid + "&units=metric&appid=" + APIKey;
+    $.ajax({
+       url:forcastURL,
+       method:"GET"
+   }).then(function(data){
 
 
    
