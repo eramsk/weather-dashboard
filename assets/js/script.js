@@ -140,7 +140,7 @@ function forecast(cityid){
        var cardBody = $('<div>').addClass('card-body');
        
         // Forecast Weather Icon
-        
+
         var forecastIcon= $("<img>").attr("src", "https://openweathermap.org/img/wn/" + data.list[dataIndex].weather[0].icon+ "@2x.png");
         forecastIcon.attr("alt", data.list[dataIndex].weather[0].description);
         forecastIcon.css("align","left");
@@ -159,3 +159,24 @@ function forecast(cityid){
         // Forecast Humidity
         var forecastHumidity = $("<p>").text("Humidity " + (data.list[dataIndex].main.humidity) + " %").addClass('card-text');
         forecastHumidity.css("color", "#05D9FF");
+
+        
+    // Appending all forecast elements to the div element
+    
+      forecastDiv.append(cardBody);
+      forecastDiv.append(forecastDays[i]);
+      forecastDiv.append(forecastIcon);
+      forecastDiv.append(forecastTemp);
+      forecastDiv.append(forecastWind);
+      forecastDiv.append(forecastHumidity);
+      console.log(forecastDiv)
+
+      // Appending the div element to forecast id
+      forecastId.append(forecastDiv);
+      
+       
+           }
+   
+    }
+   
+   )}
